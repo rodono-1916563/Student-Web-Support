@@ -1,0 +1,94 @@
+/* Per il flip delle card */
+.flip-card-container {
+  width: 20rem;
+  height: 25rem;
+  perspective: 1000px;
+}
+
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.flip-card-container.flip .flip-card {
+  transform: rotateY(-180deg);
+}
+
+.flip-card-container:hover {
+  transform: scale(1.1);
+  transition: transform 1s;
+  box-shadow: 0px 4px 10px rgb(54, 50, 47);
+}
+
+
+.flip-card-back {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  transform: rotateY(-180deg);
+  border: 1px solid grey;
+}
+
+
+.flip-card-front {
+  background-color: white;
+  color: black;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.flip-card-back p {
+  margin: 2rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.flip-card-back h4 {
+  margin: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+}
+
+
+.more-stuff-grid {
+  display: grid;
+  align-items: center;
+  padding: 1rem;
+}
+
+
+.more-stuff-grid p {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.more-stuff-grid img {
+  padding: 1rem;
+  margin: 1rem;
+}
+
+@media (max-width: 500px) {
+
+  .more-stuff-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+}

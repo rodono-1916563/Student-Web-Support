@@ -1,0 +1,40 @@
+<div class="container justify-content-center">
+
+    <div class="container justify-content-center pb-4">
+        <div class="col-12 text-center">
+            <h6 class="display-4 bold">Inserisci qui la nuova FAQ:</h6>
+        </div>
+    </div>
+
+    <div class="row justify-content-center bg-light p-sm-3 m-sm-3">
+
+        <!-- Per la notitica -->
+        <div id="res-faq-Ajax" class="col-12 py-3" onclick="return rimuoviAlert()"></div>
+
+        <div class="col-12">
+            <!-- Form per poter inserire i dati una Faq -->
+            <form method="POST" id="insert-faq" name="form-insert-faq" class="row plg-5" novalidate>
+
+                <!-- Domanda -->
+                <div class="form-group">
+                    <p class="m-0 pb-1 bold">Domanda:</p>
+                    <textarea name="domanda-faq" id="domanda-faq" class="form-control"
+                        placeholder="Scrivi qui la domanda:" required></textarea>
+                    <p class="notifica"></p>
+                </div>
+
+                <!-- Risposta -->
+                <div class="form-group">
+                    <p class="m-0 pb-1 bold">Risposta:</p>
+                    <textarea name="risposta-faq" id="risposta-faq" class="form-control"
+                        placeholder="Scrivi qui la risposta:" required></textarea>
+                    <p class="notifica"></p>
+                </div>
+
+                <button class="btn btn-brand" name="invioFormFaq" type="submit"
+                    onclick="return validaCaricamentoFaq()">Invia</button>
+
+            </form>
+        </div>
+    </div>
+</div>

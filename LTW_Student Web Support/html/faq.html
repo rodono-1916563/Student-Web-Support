@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-Web-Support FAQ</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Boostrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+
+
+    <!-- Per JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <!-- Per il nostro foglio di stile -->
+    <link rel='stylesheet' type="text/css" href='../css/style.css'>
+    <link rel="stylesheet" href="../css/faq.css" />
+    <link rel='stylesheet' type='text/css' href='../css/notifiche.css'>
+
+    <!-- Per le icone delle frecce -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+
+    <script src="../javascript/utility.js"></script>
+    <script src="../javascript/validaForm.js"></script>
+    <script src="../javascript/validaNewsletter.js"></script>
+    <script src="../javascript/faq.js"></script>
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            validaNewsletter();
+
+            caricaFaq();
+
+            ancoraTop();
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <button type="button" class="btn btn-danger btn-floating btn-lg" id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+
+            <!-- Da mettere il logo e il collegamento alla home-->
+            <img src="../immagini/logo.png" id="logo" alt="logo" />
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/chisiamo.html">Chi Siamo</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../html/iniziative.html">Iniziative</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="../html/faq.html">FAQ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <!-- <button class="nav-link btn btn-brand" href='./redirectToLogin.php'>Login</button> -->
+                        <a class="nav-link btn btn-brand" href='../php/redirectToLogin.php'>Login</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!--TITOLO-->
+    <section id="titolo">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-3">FAQ</h1>
+                    <p>In questa sezione troverai la risposta a tutte le tue domande più profonde che riguardano il
+                        nostro Ateneo.
+                        <br>Se non trovi la risposta che fa per te, non disperare. Scrivici un'email nel form apposito e
+                        ti faremo sapere!
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Sezione per le FAQ -->
+    <section id="faq">
+        <h1 class="title">Domande Frequenti</h1>
+
+        <div class="container">
+            <div class="questions-container row mt-5">
+
+                <!-- Dinamicamente vengono caricate le Faq con le risposte -->
+                <div id="faq-Ajax"></div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Contattaci -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 section-intro">
+                    <h1>Contattaci</h1>
+                    <p>Non hai trovato la risposta che cercavi tra le faq proposte?
+                        <br>Nessun problema, non esitare a contattarci!
+                        <br>Ti faremo avere la risposta cercata nel minor tempo possibile per email.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row bg-light">
+                <div class="col-lg-7 d-flex">
+
+                    <!-- Form per permettere all'utente di contattarci-->
+                    <form action="../php/formSupport.php" method="POST" id="idForm" name="formContattaci"
+                        class="row gx-3 gy-3 p-4 plg-5" onsubmit="return validaContattaci()" novalidate>
+
+                        <small>*Nome e Cognome sono facoltativi</small>
+                        <div class="form-group col-lg-6">
+                            <input type="text" name="nome" id="idNome" class="form-control"
+                                placeholder="Inserisci il tuo nome">
+                            <p class="notifica"></p>
+                        </div>
+
+                        <div class="form-group col-lg-6">
+                            <input type="text" name="cognome" id="idCognome" class="form-control"
+                                placeholder="Inserisci il tuo cognome">
+                            <p class="notifica"></p>
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <input type="email" name="email" id="idEmail" class="form-control"
+                                placeholder="Inserisci la tua email" required>
+                            <p class="notifica"></p>
+                        </div>
+
+
+                        <div class="form-group col-lg-12">
+                            <input type="text" name="oggetto" id="idOggetto" class="form-control" placeholder="Oggetto:"
+                                required>
+                            <p class="notifica"></p>
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <textarea name="descrizione" id="idDescrizione" class="form-control"
+                                placeholder="Scrivi qui la tua domanda" required></textarea>
+                            <p class="notifica"></p>
+                        </div>
+
+                        <button class="btn btn-brand" name="invioForm" type="submit">Invia</button>
+
+                    </form>
+                </div>
+
+                <!-- Per mostrare sulla mappa la posizione della Sapienza-->
+                <div class="col-lg-5">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2969.4954573327414!2d12.51483536693421!3d41.90370670409388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1652289101207!5m2!1sit!2sit"
+                        class="map" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--FOOTER-->
+    <footer class="bg-dark text-center text-white" id="footer">
+        <div class="text-center p-3">
+            <p>© 2022 Copyright:</p>
+            <a class="text-white">Progetto LTW - Tarricone, Rodonò</a>
+            <a class="text-white" href="https://github.com/rodono-1916563/Student-Web-Support"><i class="bi bi-github"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
