@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>SWS - Login</title>
+
+    <!-- Bootstrap CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css' rel='stylesheet'
+        integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC' crossorigin='anonymous'>
+
+    <!-- Boostrap Icons -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css'>
+
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'
+        integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM'
+        crossorigin='anonymous'></script>
+
+    <script src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js'
+        integrity='sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p'
+        crossorigin='anonymous'></script>
+
+
+    <!-- Per JQuery -->
+    <script src='https://code.jquery.com/jquery-3.6.0.min.js'
+        integrity='sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=' crossorigin='anonymous'></script>
+
+    <!-- Per il nostro foglio di stile -->
+    <link rel='stylesheet' type='text/css' href='../css/style.css'>
+    <link rel='stylesheet' type='text/css' href='../css/notifiche.css'>
+
+    <script src="../javascript/utility.js"></script>
+    <script src='../javascript/validaLogin.js'></script>
+
+    <script>
+        $(document).ready(function () {
+            verificaLogin();
+        });
+
+        function nascondi(){
+            $('#intrusion-Ajax').empty();
+        }
+        </script>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav id='navbar' class='navbar navbar-expand-lg navbar-light bg-light'>
+        <div class='container'>
+
+            <img src='../immagini/logo.png' id='logo' alt='logo' />
+
+            <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav'
+                aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation'>
+
+                <span class='navbar-toggler-icon'></span>
+            </button>
+
+            <div class='collapse navbar-collapse' id='navbarNav'>
+                <ul class='navbar-nav ms-auto'>
+
+                    <li class='nav-item'>
+                        <a class='nav-link' href='../html/index.html'>Home</a>
+                    </li>
+
+                    <li class='nav-item'>
+                        <a class='nav-link' href='../html/chisiamo.html'>Chi Siamo</a>
+                    </li>
+
+                    <li class='nav-item'>
+                        <a class='nav-link' href='../html/iniziative.html'>Iniziative</a>
+                    </li>
+
+                    <li class='nav-item'>
+                        <a class='nav-link' href='../html/faq.html'>FAQ</a>
+                    </li>
+
+                    <li class='nav-item'>
+                        <a class='nav-link active' aria-current='page' href='../php/redirectToLogin.php'>Login</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <section id='login'>
+        <div class='container p-5'>
+
+            <div class='row'>
+                <div class='col-12 section-intro'>
+                    <h1>Login</h1>
+                    <p>Quest'area è dedicata solamente agli amministratori della pagina!
+                        <br>Se non sei un amministratore, puoi continuare la tua navigazione usando la navbar. Grazie.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Form per il login -->
+            <form action='../php/login.php' method='POST' id='formLogin' name='formLogin'
+                class='row gx-0 bg-light gy-3 p-4 plg-5 form-signin' novalidate>
+
+                <div id='intrusion-Ajax' onclick='return nascondi()'></div>
+
+                <h4>Username:</h4>
+                <div class='form-group col-lg-12'>
+                    <input type='text' name='username' id='idUsername' class='form-control'
+                        placeholder='Inserisci il tuo username'>
+                    <p class='notifica'></p>
+                </div>
+
+                <h4>Password:</h4>
+                <div class='form-group col-lg-12'>
+                    <input type='password' name='password' id='idPassword' class='form-control'
+                        placeholder='Inserisci la password'>
+                    <p class='notifica'></p>
+                </div>
+
+                <button id='loginBtn' class='btn btn-brand' name='invioLogin' type='submit'>Invia</button>
+
+            </form>
+
+        </div>
+    </section>
+
+
+    <!--FOOTER-->
+    <footer class='bg-dark text-center text-white' id='footer'>
+        <div class='text-center p-3'>
+            <p>© 2022 Copyright:</p>
+            <a class='text-white'>Progetto LTW - Tarricone, Rodonò</a>
+            <a class='text-white' href='https://github.com/rodono-1916563/Student-Web-Support'><i class='bi bi-github'></i></a>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>

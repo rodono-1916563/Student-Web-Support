@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="container justify-content-center pb-4">
+            <div class="col-12 text-center">
+                <h6 class="display-4 bold">Inserisci qui i dati del nuovo evento:</h6>
+            </div>
+        </div>
+
+
+        <div class="row bg-light p-sm-3 m-sm-3">
+
+            <div id="res-Ajax" class="col-12" onclick="return rimuovi()"></div>
+
+            <div class="col-12 d-flex">
+
+                <!-- Form per poter inserire i dati dell'evento da aggiungere -->
+                <form method="POST" id="insert-eventi" name="form-insert-eventi" class="row gx-3 gy-3 plg-5 m-1"
+                    novalidate>
+
+                    <!-- Nome -->
+                    <div class="form-group col-12">
+                        <p class="m-0 pb-1 bold">Nome dell'evento:</p>
+                        <input type="text" name="nome-evento" id="nome-evento" class="form-control"
+                            placeholder="Inserisci qui il nome dell'evento" required>
+                        <p class="notifica"></p>
+                    </div>
+
+                    <!-- Descrizione -->
+                    <div class="form-group col-12">
+                        <p class="m-0 pb-1 bold">Descrizione dell'evento:</p>
+                        <textarea name="descrizione-evento" id="descrizione-evento" class="form-control"
+                            placeholder="Scrivi qui la descrizione dell'evento" required></textarea>
+                        <p class="notifica"></p>
+                    </div>
+
+                    <!-- Luogo -->
+                    <div class="form-group col-lg-6 col-12 ">
+                        <p class="m-0 pb-1 bold">Luogo dell'evento:</p>
+                        <input type="text" name="luogo-evento" id="luogo-evento" class="form-control"
+                            placeholder="Inserisci dove si terrà l'evento" required>
+                        <p class="notifica"></p>
+                    </div>
+
+                    <!-- Data -->
+                    <div class="form-group col-lg-6 col-12 ">
+                        <p class="m-0 pb-1 bold">Data dell'evento:</p>
+                        <input type="text" name="data-evento" id="data-evento" class="form-control"
+                            placeholder="Inserisci quando si terrà l'evento" required>
+                        <p class="notifica"></p>
+                    </div>
+
+                    <!-- Ora -->
+                    <div class="form-group col-lg-6 col-12">
+                        <p class="m-0 pb-1 bold">Ora dell'evento:</p>
+                        <input type="text" name="ora-evento" id="ora-evento" class="form-control"
+                            placeholder="Inserisci a che ora si terrà l'evento" required>
+                        <p class="notifica"></p>
+                    </div>
+
+                    <!-- Immagine -->
+                    <div class="form-group col-lg-6 col-12">
+                        <p class="m-0 pb-1 bold">Immagine dell'evento:</p>
+                        <input type="file" name="foto-evento" id="foto-evento" class="form-control"
+                            placeholder="Inserisci la foto dell'evento" required>
+                        <p class="notifica"></p>
+                    </div>
+
+                    <button class="btn btn-brand" name="invioFormEvento" type="submit"
+                        onclick="return validaCaricamentoEvento()">Invia</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>

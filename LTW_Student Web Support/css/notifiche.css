@@ -1,0 +1,68 @@
+
+/* Per l'inserimento dei dati corretti */
+#contact .form-control.success input,
+#titolo #newsletter.success input,
+#contact .form-control.success textarea,
+#contact .form-control.success textarea,
+#login .form-control.success input,
+#zonaDinamica #azione-scelta-Ajax .form-control.success input,
+#zonaDinamica .form-control.success textarea {
+    border-color: #2ecc71 !important;
+    color: #2ecc71;
+}
+
+#zonaDinamica .notifica-success,
+#titolo #newsletter .notifica-success {
+    color: white;
+    background-color: rgb(38, 229, 140);
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+
+/* Per l'inserimento dei dati sbagliati */
+#contact .form-control.error input,
+#contact .form-control.error textarea,
+#zonaDinamica .form-control.error textarea,
+#titolo #newsletter.error input,
+#login .form-control.error input,
+#zonaDinamica .form-control.error input {
+    border-color: #e74c3c !important;
+}
+
+#titolo #newsletter .news-error,
+#login #formLogin .news-error,
+#zonaDinamica #insert-eventi .news-error,
+#zonaDinamica .news-error,
+#titolo #newsletter .notifica {
+    justify-content: center;
+    color: white;
+    background-color: rgb(235, 101, 101);
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+
+/* Per le notifiche sui dati sbagliati */
+#contact #idForm .notifica,
+#login #formLogin .notifica,
+#zonaDinamica #insert-eventi .notifica,
+#zonaDinamica #insert-faq .notifica {
+    color: red;
+}
+
+
+#login .form-control,
+#zonaDinamica .form-control {
+    border-color: white;
+}
+
+#login #formLogin p.notifica,
+#zonaDinamica #insert-eventi p.notifica {
+    background-color: none;
+}
+
+
+
